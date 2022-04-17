@@ -1,0 +1,35 @@
+.site-header {
+    background: url( '../../src/images/banner.jpg' );
+    background-size: cover;
+    text-align: center;
+    position: relative;
+}
+
+.site-header h1 {
+    background: #fcc202;
+    border-radius: 500px;
+    display: inline-block;
+    padding: 30px;
+    margin: 200px 0;
+}
+.site-header__top-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.site-header__top-wave path {
+    fill: #008ec0;
+    mix-blend-mode: multiply;
+}
+.site-header__bottom-wave {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    transform: rotate( 180deg );
+}
+
+.site-header__bottom-wave path{
+    fill: #fff;
+}

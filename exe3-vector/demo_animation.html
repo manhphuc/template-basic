@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            animation: moveRight 4s cubic-bezier(.39,-0.3,.75,1.36) infinite alternate forwards;
+            
+        }
+
+        @keyframes moveRight {
+            0%   { transform: translate(0, 0); }
+            100%   { transform: translate(500px, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="a"></div>
+</body>
+</html>
