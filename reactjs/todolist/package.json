@@ -82,10 +82,11 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
     "axios": "^0.21.1",
-    "mdb-ui-kit": "^4.0.0",
     "datatables.net": "^1.11.5",
     "datatables.net-bs4": "^1.11.5",
     "datatables.net-buttons": "^2.2.2",
-    "datatables.net-responsive": "^2.2.9"
+    "datatables.net-responsive": "^2.2.9",
+    "mdb-ui-kit": "^4.0.0",
+    "uuid": "^8.3.2"
   }
 }
