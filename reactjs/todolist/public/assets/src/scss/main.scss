@@ -1,0 +1,30 @@
+/* Main CSS */
+
+// Import Fonts
+@import "font";
+
+// Import Bootstrap
+
+
+@import "~bootstrap/scss/bootstrap-reboot";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap-grid";
+
+//@import '~mdb-ui-kit/css/mdb.min.css';
+
+// Global Variables
+@import "variables-effects";
+
+// Reset
+@import "reset";
+
+// Base CSS
+@import "base";
+
+// Import plugin
+@import "./../plugins/datatables-responsive/css/responsive.bootstrap4.min.css";
+
+// Home Main Sections
+@import "parts/main";
+
+@import "parts/todolist";

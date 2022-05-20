@@ -1,0 +1,22 @@
+.todolistAction {
+  .dropdown-menu.drwCustom > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+  }
+  //input,
+  //select,
+  //textarea {
+  //  max-width: 280px;
+  //}
+  max-width: 368px;
+  margin: 0 auto;
+}
+.yivic-btnSM {
+  padding: 0.02rem 0.2rem;
+  font-size: 0.675rem;
+}
