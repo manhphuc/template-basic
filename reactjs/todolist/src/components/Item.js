@@ -4,9 +4,7 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
 const faPenElement    = <FontAwesomeIcon icon={ faPen } />
 const faTrashElement  = <FontAwesomeIcon icon={ faTrash } />
 
-const Item = ( props ) => {
-
-    const item = props.item;
+const Item = ( { item, index, onClickDelete } ) => {
 
     const setElmLvl = ( lvl ) => {
         let elmLvl = null;
@@ -24,14 +22,18 @@ const Item = ( props ) => {
         return elmLvl;
     }
 
+    const handleDelete = ( id ) => {
+        onClickDelete( id )
+    }
+
     return (
         <tr>
-            <td>{ props.index + 1 }</td>
-            <td className="text-left td-content"><a>{item.name}</a></td>
+            <td>{ index + 1 }</td>
+            <td className="text-left td-content"><a>{ item.name }</a></td>
             <td>{ setElmLvl( item.level ) }</td>
             <td width={30} >
-                <a href="#" className="btn btn-info btn-sm rounded-circle yivic-btnSM">{ faPenElement }</a>
-                <a href="#" className="btn btn-danger btn-sm rounded-circle yivic-btnSM">{ faTrashElement }</a>
+                <a role="button" className="btn btn-info btn-sm rounded-circle yivic-btnSM">{ faPenElement }</a>
+                <a onClick = { () => handleDelete( item.id ) } role="button" className="btn btn-danger btn-sm rounded-circle yivic-btnSM">{ faTrashElement }</a>
             </td>
         </tr>
     );

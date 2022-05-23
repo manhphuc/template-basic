@@ -1,16 +1,17 @@
 import { useRef, useState } from "react";
 
-const Search = () => {
+const Search = ( { onClickGo } ) => {
     const searchInput = useRef('' );
 
     const [ strSearch, setStrSearch ] = useState( '' );
 
     const handleSearch = () => {
-        console.log( strSearch );
+        onClickGo( strSearch );
     }
 
     const handleClear = () => {
         setStrSearch( '' );
+        onClickGo( '' );
     }
 
     const handleSearchChange = event => {

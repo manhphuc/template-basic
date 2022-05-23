@@ -86,6 +86,7 @@
     "datatables.net-bs4": "^1.11.5",
     "datatables.net-buttons": "^2.2.2",
     "datatables.net-responsive": "^2.2.9",
+    "lodash": "^4.17.21",
     "mdb-ui-kit": "^4.0.0",
     "uuid": "^8.3.2"
   }

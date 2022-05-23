@@ -1,12 +1,11 @@
 // Import modules
 import Item from './Item'
 
-const List = ( props ) => {
+const List = ( { items, onClickDelete } ) => {
 
-  const items = props.items
   const elementItem = items.map( ( item, index ) => {
     return (
-        <Item key = { index } item = { item } index = { index } />
+        <Item key = { index } item = { item } index = { index } onClickDelete = { onClickDelete } />
     );
   } );
 
@@ -21,9 +20,9 @@ const List = ( props ) => {
             <table id="yivicTableAjax-ordering" className="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th className="text-center">ID</th>
+                  <th className="text-center"  width="60px">ID</th>
                   <th data-priority={2} className="text-left td-content">Name</th>
-                  <th className="text-center">Modified</th>
+                  <th className="text-center">Level</th>
                   <th className="text-center" width="30px">Action</th>
                 </tr>
               </thead>
