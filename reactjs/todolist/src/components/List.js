@@ -22,7 +22,7 @@ const List = ( { items, onClickDelete, onClickEdit } ) => {
                 <tr>
                   <th className="text-center"  width="60px">ID</th>
                   <th data-priority={2} className="text-left td-content">Name</th>
-                  <th className="text-center">Level</th>
+                  <th className="text-center" width="30px">Level</th>
                   <th className="text-center" width="30px">Action</th>
                 </tr>
               </thead>

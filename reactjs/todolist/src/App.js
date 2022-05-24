@@ -1,5 +1,5 @@
 // Import Modules
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Title from './components/Title'
 import Control from './components/Control'
 import Form from './components/Form'
@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import items from './mocks/tasks'
 
-function App() {
+const App = () => {
 
   const [ taskListOrigin, setTaskListOrigin ] = useState( [...items] );
   const [ isShowForm, setIsShowForm ]         = useState( false );
@@ -23,6 +23,11 @@ function App() {
   const [ itemSelected, setItemSelected ]     = useState( null );
 
   let taskList = [];
+
+  useEffect( () => {
+    let items = JSON.parse( localStorage.getItem( 'task' ) ) || [];
+    setTaskListOrigin( items );
+  }, [] );
 
   /*
   * Using lodash lib for search filter by name
@@ -46,6 +51,7 @@ function App() {
       return item.id === id;
     } );
     setTaskListOrigin( [...taskListOrigin] );
+    localStorage.setItem( 'task', JSON.stringify( taskListOrigin ) );
   }
 
   const handleToggleForm = () => {
@@ -63,22 +69,26 @@ function App() {
   }
 
   const handleSubmit = ( item ) => {
-    console.log( item )
     let items = taskListOrigin;
     let id    = null;
+
     if( item.id !== '' ) { // EDIT
       items = reject( items, { id: item.id } );
       id = item.id;
     } else { // ADD
       id = uuidv4();
     }
+
     items.push( {
       id    : id,
       name  : item.name,
       level : +item.level,
     } );
+
     setTaskListOrigin( [...items] );
     setIsShowForm( false );
+
+    localStorage.setItem( 'task', JSON.stringify( items ) );
   }
 
   const handleEdit = ( item ) => {
