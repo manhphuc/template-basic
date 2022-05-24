@@ -1,11 +1,11 @@
 // Import modules
 import Item from './Item'
 
-const List = ( { items, onClickDelete } ) => {
+const List = ( { items, onClickDelete, onClickEdit } ) => {
 
   const elementItem = items.map( ( item, index ) => {
     return (
-        <Item key = { index } item = { item } index = { index } onClickDelete = { onClickDelete } />
+        <Item key = { index } item = { item } index = { index } onClickDelete = { onClickDelete } onClickEdit = { onClickEdit } />
     );
   } );
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 const globalStyle = {
   margin: 0,
@@ -6,7 +6,7 @@ const globalStyle = {
   marginTop: 5,
 };
 
-const Form = ( { onClickCancel, onClickSubmit } ) => {
+const Form = ( { onClickCancel, onClickSubmit, itemSelected } ) => {
 
   const [ taskID, setTaskID ]       = useState( '' );
   const [ taskName, setTaskName ]   = useState( '' );
@@ -36,6 +36,19 @@ const Form = ( { onClickCancel, onClickSubmit } ) => {
     onClickSubmit( item );
     event.preventDefault();
   }
+
+  const updateItem = item => {
+    if( item !== null ) {
+      setTaskID( item.id );
+      setTaskName( item.name );
+      setTaskLevel( item.level );
+    }
+  }
+
+  useEffect( () => {
+    //console.log('Prop Received: ', itemSelected);
+    updateItem( itemSelected )
+  }, [ itemSelected ] )
 
   return (
     <div className="row">

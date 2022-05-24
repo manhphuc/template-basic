@@ -4,7 +4,7 @@ import Title from './components/Title'
 import Control from './components/Control'
 import Form from './components/Form'
 import List from './components/List'
-import { filter, includes, orderBy as fnOrderBy, remove as fnRemove } from 'lodash'
+import { filter, includes, orderBy as fnOrderBy, remove as fnRemove, reject } from 'lodash'
 import { v4 as uuidv4 } from 'uuid';
 
 import items from './mocks/tasks'
@@ -19,12 +19,8 @@ function App() {
   const [ orderBy, setOrderBy ]               = useState( 'name' );
   const [ orderDir, setOrderDir ]             = useState( 'desc' );
 
-  // const handleAddTask = ( task ) => {
-  //   // Add task
-  //   setTaskList( [ ...taskList, task ] );
-  // }
-
-  //console.log( orderBy + "-" + orderDir );
+  // Edit
+  const [ itemSelected, setItemSelected ]     = useState( null );
 
   let taskList = [];
 
@@ -54,6 +50,7 @@ function App() {
 
   const handleToggleForm = () => {
     setIsShowForm( prevState => !prevState );
+    setItemSelected( null );
   }
 
   const handleSearch = ( value ) => {
@@ -68,13 +65,25 @@ function App() {
   const handleSubmit = ( item ) => {
     console.log( item )
     let items = taskListOrigin;
+    let id    = null;
+    if( item.id !== '' ) { // EDIT
+      items = reject( items, { id: item.id } );
+      id = item.id;
+    } else { // ADD
+      id = uuidv4();
+    }
     items.push( {
-      id    : uuidv4(),
+      id    : id,
       name  : item.name,
       level : +item.level,
-    } )
+    } );
     setTaskListOrigin( [...items] );
     setIsShowForm( false );
+  }
+
+  const handleEdit = ( item ) => {
+    setItemSelected( item );
+    setIsShowForm( true );
   }
 
   const closeForm = () => {
@@ -86,6 +95,7 @@ function App() {
     elmForm = <Form
         onClickCancel = { () => closeForm() }
         onClickSubmit = { handleSubmit }
+        itemSelected  = { itemSelected }
     />;
   }
 
@@ -120,6 +130,7 @@ function App() {
             <List
                 items         = { taskList }
                 onClickDelete = { handleDelete }
+                onClickEdit   = { handleEdit }
             />
             {/* END List */}
           </div>

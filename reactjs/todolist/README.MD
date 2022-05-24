@@ -15,6 +15,8 @@ $npm test
 $npm eject
 ```
 
+## Screenshot
+![screenshot-overview](/reactjs/todolist/docs/images/screenshot-overview.png)
 
 # Getting Started with Create React App
 
