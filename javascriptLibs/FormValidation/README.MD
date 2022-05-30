@@ -1,5 +1,5 @@
 ## Screenshot
-![Screenshot Validate Form](/javascriptLibs/FormValidation/docs/images/screenshot-formValidate.jpg)
+![screenshot-validate-form](/javascriptLibs/FormValidation/docs/images/screenshot-formValidate.png)
 
 ## Yivic Webpack Suite from manhphucofficial@yahoo.com
 - [Requirements from yivic-webpack-suite](https://github.com/manhphuc/yivic-webpack-suite/blob/master/docs/00-requirements-from%20yivic-webpack-suite.md)
